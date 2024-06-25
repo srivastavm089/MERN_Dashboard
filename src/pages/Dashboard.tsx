@@ -3,7 +3,9 @@ import AdminSlidebar from "../components/AdminSlidebar";
 import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
-import { BarChart } from "../components/Charts";
+import { BarChart, DoughnutChart } from "../components/Charts";
+import { BiMaleFemale } from "react-icons/bi";
+import { Doughnut } from "react-chartjs-2";
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -72,6 +74,18 @@ const Dashboard = () => {
             
           </div>
           
+        </section>
+
+
+        <section className="transaction-container">
+            <div className="gender-chart">
+              <h2>Gender Ratio</h2>
+              <DoughnutChart labels={["Male","Female"]} data={[12,19]} backgorundColor={["hsl(68, 40%,50%)","hsl(169, 100%,50%)"]} cutout={90}/>
+              {/* Chart */}
+              <p><BiMaleFemale/></p>
+            </div>
+            {/* Table */}
+
         </section>
       </main>
 
