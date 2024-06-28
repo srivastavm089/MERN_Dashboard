@@ -6,6 +6,8 @@ import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import { BarChart, DoughnutChart } from "../components/Charts";
 import { BiMaleFemale } from "react-icons/bi";
 import { Doughnut } from "react-chartjs-2";
+import Table from "../components/DashboardTable";
+import data from "../assets/data.json";
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -80,10 +82,12 @@ const Dashboard = () => {
         <section className="transaction-container">
             <div className="gender-chart">
               <h2>Gender Ratio</h2>
-              <DoughnutChart labels={["Male","Female"]} data={[12,19]} backgorundColor={["hsl(68, 40%,50%)","hsl(169, 100%,50%)"]} cutout={90}/>
+              <DoughnutChart labels={["Male","Female"]} data={[60,40]} backgorundColor={["hsl(68, 40%,50%)","hsl(169, 100%,50%)"]} cutout={90}/>
               {/* Chart */}
               <p><BiMaleFemale/></p>
             </div>
+            <Table data={data.transaction}/>
+            
             {/* Table */}
 
         </section>
@@ -98,7 +102,7 @@ interface WidgetItemProps {
   value: number;
   percent: number;
   color: string;
-  amount: string;
+  amount?: boolean;
 }
 
 const WidgetItem = ({
